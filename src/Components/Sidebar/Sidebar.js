@@ -5,8 +5,15 @@ import './Sidebar.css'
 const Sidebar = () => {
     return (
         <div className='Sidebar'>
-            <img className='my-img' src={image} alt="" />
-            <h2>Name: Rakibul Hasan</h2>
+            <div className='img-center'>
+                <img className='my-img' src={image} alt="" />
+            </div>
+            <div className='details'>
+                <h3>Name: Rakibul Hasan</h3>
+                <h5>Junior Web Developer</h5>
+                <h5>Age:28</h5>
+                <h5>Nationality:Bangladeshi</h5>
+            </div>
         </div>
     );
 };

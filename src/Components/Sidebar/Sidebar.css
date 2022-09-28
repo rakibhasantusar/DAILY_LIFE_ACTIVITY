@@ -1,7 +1,15 @@
 .Sidebar {
+  width: 300px;
+  margin: 20px auto;
+}
+.img-center {
+  margin: 0 auto;
+  width: 150px;
 }
 .my-img {
   width: 150px;
-  height: 150px;
   border-radius: 50%;
+}
+.details h5 {
+  margin: 10px 0;
 }

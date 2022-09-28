@@ -28,5 +28,6 @@
   border: none;
 }
 .cart-btn:hover {
-  background-color: orangered;
+  background-color: #1d0000;
+  color: aliceblue;
 }
