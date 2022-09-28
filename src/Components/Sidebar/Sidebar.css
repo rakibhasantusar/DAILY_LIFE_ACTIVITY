@@ -13,3 +13,36 @@
 .details h5 {
   margin: 10px 0;
 }
+.break-time {
+  margin-top: 30px;
+  padding-top: 5px;
+  text-align: center;
+}
+.break-btn {
+  width: 280px;
+  margin: 10px auto;
+}
+.break-btn button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+.break-btn button:hover {
+  background-color: sandybrown;
+  color: #fff;
+}
+.daily-act-btn {
+  width: 100%;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #1d0000;
+  color: aliceblue;
+  border-radius: 10px;
+  border: none;
+}
+.daily-act-btn:hover {
+  background-color: sandybrown;
+  color: #1d0000;
+}
