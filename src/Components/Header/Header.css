@@ -1,0 +1,18 @@
+.header {
+  background-color: #1d0000;
+}
+.header-logo {
+  display: flex;
+  align-items: center;
+  width: 500px;
+  margin: 0 auto;
+}
+.header h2 {
+  margin-left: 10px;
+  font-size: 40px;
+  color: #de5d64;
+}
+.header img {
+  height: 60px;
+  width: 60px;
+}
