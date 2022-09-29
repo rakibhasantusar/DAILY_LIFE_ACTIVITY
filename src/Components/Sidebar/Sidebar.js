@@ -16,13 +16,11 @@ const Sidebar = ({ time }) => {
         const main = [];
         const getLocaldata = localStorage.getItem('time')
         if (getLocaldata) {
-            localStorage.setItem("time", JSON.stringify(breaktime))
+            localStorage.setItem("time", JSON.stringify({ breaktime }))
             main.push(getLocaldata)
-            console.log(getLocaldata);
-            // setBreaktime(main)
         }
         else {
-            localStorage.setItem("time", JSON.stringify(breaktime))
+            localStorage.setItem("time", JSON.stringify({ breaktime }))
         }
 
     }, [breaktime])
