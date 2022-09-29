@@ -10,6 +10,9 @@
   width: 150px;
   border-radius: 50%;
 }
+.details {
+  margin-left: 15px;
+}
 .details h5 {
   margin: 10px 0;
 }

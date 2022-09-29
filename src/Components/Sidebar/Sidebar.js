@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import image from '../../images/Rakib-Hasan-Tusar.jpg'
 import './Sidebar.css'
-import Swal from 'sweetalert2'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Sidebar = ({ time }) => {
     let totalTime = 0;
@@ -18,12 +19,7 @@ const Sidebar = ({ time }) => {
 
     const toastLook = () => {
         setAlert(alert)
-        Swal.fire(
-            'Hurraaahh!',
-            'Daily activity is done',
-            'success'
-        )
-
+        toast("Hurrah! Activity completed");
     }
 
     return (
@@ -56,8 +52,11 @@ const Sidebar = ({ time }) => {
                     <h4 style={{ backgroundColor: 'sandybrown', padding: '10px', borderRadius: '10px' }} >Break time: {breaktime} miniute</h4>
                 </div>
                 <button className='daily-act-btn' onClick={toastLook} ><p>Daily Activity Done</p></button>
+
             </div>
+            <ToastContainer />
         </div>
+
     );
 };
 

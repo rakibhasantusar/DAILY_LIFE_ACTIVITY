@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: 4fr 1fr;
   margin: 30px;
+  gap: 10px;
 }
 .container-left {
   display: grid;
@@ -9,7 +10,9 @@
   gap: 30px;
 }
 .container-right {
+  border-radius: 5px;
   background-color: peachpuff;
+  min-width: 310px;
 }
 
 @media only screen and (max-width: 700px) {
