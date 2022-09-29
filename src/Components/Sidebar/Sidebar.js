@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import image from '../../images/Rakib-Hasan-Tusar.jpg'
 import './Sidebar.css'
 import { ToastContainer, toast } from 'react-toastify';
@@ -10,10 +10,22 @@ const Sidebar = ({ time }) => {
         totalTime = totalTime + routineTime.time
     }
     const [breaktime, setBreaktime] = useState(0)
-    const storeLocalstorage = localStorage.setItem("time", JSON.stringify(breaktime))
 
 
-    localStorage.getItem('time')
+    useEffect(() => {
+        let main = [];
+        const getLocaldata = JSON.parse(localStorage.getItem('time'))
+        if (getLocaldata) {
+            localStorage.setItem("time", JSON.stringify(breaktime))
+            main.push(getLocaldata)
+            setBreaktime(main)
+        } else {
+            localStorage.setItem("time", JSON.stringify(breaktime))
+        }
+        // setBreaktime(main)
+    }, [])
+
+
 
     const [alert, setAlert] = useState([])
 
