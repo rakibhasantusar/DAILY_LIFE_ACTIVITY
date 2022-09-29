@@ -41,6 +41,7 @@
   color: aliceblue;
   border-radius: 10px;
   border: none;
+  margin-top: 20px;
 }
 .daily-act-btn:hover {
   background-color: sandybrown;

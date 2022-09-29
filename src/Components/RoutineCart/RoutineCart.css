@@ -1,5 +1,4 @@
 .cart {
-  border: 1px solid sienna;
   border-radius: 10px;
   height: 520px;
   width: 300px;
@@ -12,7 +11,7 @@
 .cart-img {
   margin: 0 auto;
   border-radius: 10px;
-  width: 280px;
+  max-width: 280px;
   height: 200px;
 }
 .description {

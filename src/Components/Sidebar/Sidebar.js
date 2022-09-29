@@ -1,16 +1,31 @@
 import React, { useState } from 'react';
 import image from '../../images/Rakib-Hasan-Tusar.jpg'
 import './Sidebar.css'
+import Swal from 'sweetalert2'
 
 const Sidebar = ({ time }) => {
     let totalTime = 0;
     for (const routineTime of time) {
         totalTime = totalTime + routineTime.time
     }
-
-    console.log(time);
     const [breaktime, setBreaktime] = useState(0)
-    localStorage.setItem("time", totalTime)
+    const storeLocalstorage = localStorage.setItem("time", JSON.stringify(breaktime))
+
+
+    localStorage.getItem('time')
+
+    const [alert, setAlert] = useState([])
+
+    const toastLook = () => {
+        setAlert(alert)
+        Swal.fire(
+            'Hurraaahh!',
+            'Daily activity is done',
+            'success'
+        )
+
+    }
+
     return (
         <div className='Sidebar'>
             <div className='img-center'>
@@ -40,7 +55,7 @@ const Sidebar = ({ time }) => {
                     <h4 style={{ backgroundColor: 'sandybrown', padding: '10px', borderRadius: '10px' }}>Routine Time: {totalTime} miniute</h4>
                     <h4 style={{ backgroundColor: 'sandybrown', padding: '10px', borderRadius: '10px' }} >Break time: {breaktime} miniute</h4>
                 </div>
-                <button className='daily-act-btn' ><p>Daily Activity Done</p></button>
+                <button className='daily-act-btn' onClick={toastLook} ><p>Daily Activity Done</p></button>
             </div>
         </div>
     );
