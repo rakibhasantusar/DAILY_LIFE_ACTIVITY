@@ -5,6 +5,7 @@ import './Container.css'
 
 const Container = () => {
     const [routines, setRoutines] = useState([])
+    const [time, setTime] = useState([])
     useEffect(() => {
         fetch('data-fake.json')
             .then(res => res.json())
@@ -12,18 +13,26 @@ const Container = () => {
     }, [])
 
 
+    const handleTime = (routine) => {
+        let newTime = []
+        // console.log(routine);
+        newTime = [...time, routine]
+        setTime(newTime)
+    }
+
     return (
         <div className='container'>
             <div className="container-left">
                 {
                     routines.map(routine => <RoutineCart
                         routine={routine}
+                        handleTime={handleTime}
                         key={routine.id}
                     ></RoutineCart>)
                 }
             </div>
             <div className="container-right">
-                <Sidebar></Sidebar>
+                <Sidebar time={time} ></Sidebar>
             </div>
         </div>
     );

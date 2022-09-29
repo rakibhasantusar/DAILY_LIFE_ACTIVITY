@@ -2,8 +2,9 @@ import React from 'react';
 import './RoutineCart.css'
 
 const RoutineCart = (props) => {
-    console.log(props);
-    const { name, time, img, description } = props.routine
+    // console.log(props);
+    const { routine, handleTime } = props
+    const { name, time, img, description } = routine
     return (
         <div className='cart'>
             <div className='cart-center'>
@@ -13,7 +14,7 @@ const RoutineCart = (props) => {
                     <p className='description'>{description}</p>
                     <p>duration: <span style={{ fontWeight: 'bold' }}>{time}</span> miniute</p>
                 </div>
-                <button className='cart-btn'>
+                <button onClick={() => handleTime(routine)} className='cart-btn'>
                     <p>Add to task</p>
                 </button>
             </div>

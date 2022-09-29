@@ -2,8 +2,15 @@ import React, { useState } from 'react';
 import image from '../../images/Rakib-Hasan-Tusar.jpg'
 import './Sidebar.css'
 
-const Sidebar = () => {
+const Sidebar = ({ time }) => {
+    let totalTime = 0;
+    for (const routineTime of time) {
+        totalTime = totalTime + routineTime.time
+    }
+
+    console.log(time);
     const [breaktime, setBreaktime] = useState(0)
+    localStorage.setItem("time", totalTime)
     return (
         <div className='Sidebar'>
             <div className='img-center'>
@@ -30,8 +37,8 @@ const Sidebar = () => {
                 <hr style={{ backgroundColor: 'black', padding: '2px', }} />
                 <h2>Routine Details</h2>
                 <div>
-                    <h4 style={{ backgroundColor: 'sandybrown', padding: '10px', borderRadius: '10px' }}>Routine Time:{ }</h4>
-                    <h4 style={{ backgroundColor: 'sandybrown', padding: '10px', borderRadius: '10px' }} >Break time: {breaktime}</h4>
+                    <h4 style={{ backgroundColor: 'sandybrown', padding: '10px', borderRadius: '10px' }}>Routine Time: {totalTime} miniute</h4>
+                    <h4 style={{ backgroundColor: 'sandybrown', padding: '10px', borderRadius: '10px' }} >Break time: {breaktime} miniute</h4>
                 </div>
                 <button className='daily-act-btn' ><p>Daily Activity Done</p></button>
             </div>
