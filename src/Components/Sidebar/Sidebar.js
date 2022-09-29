@@ -13,17 +13,19 @@ const Sidebar = ({ time }) => {
 
 
     useEffect(() => {
-        let main = [];
-        const getLocaldata = JSON.parse(localStorage.getItem('time'))
+        const main = [];
+        const getLocaldata = localStorage.getItem('time')
         if (getLocaldata) {
             localStorage.setItem("time", JSON.stringify(breaktime))
             main.push(getLocaldata)
-            setBreaktime(main)
-        } else {
+            console.log(getLocaldata);
+            // setBreaktime(main)
+        }
+        else {
             localStorage.setItem("time", JSON.stringify(breaktime))
         }
-        // setBreaktime(main)
-    }, [])
+
+    }, [breaktime])
 
 
 
