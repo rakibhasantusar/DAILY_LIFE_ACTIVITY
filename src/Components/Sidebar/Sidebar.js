@@ -7,35 +7,28 @@ import 'react-toastify/dist/ReactToastify.css';
 const Sidebar = ({ time }) => {
     let totalTime = 0;
     for (const routineTime of time) {
-        totalTime = totalTime + routineTime.time
+        console.log(routineTime);
+        totalTime = totalTime + routineTime
     }
     const [breaktime, setBreaktime] = useState(0)
 
+    const handleTime = (time) => {
+        localStorage.setItem("time", JSON.stringify(time))
+        setBreaktime(time)
+
+    }
 
     useEffect(() => {
-        const main = [];
         const getLocaldata = localStorage.getItem('time')
         if (getLocaldata) {
-            localStorage.setItem("time", JSON.stringify({ breaktime }))
-            main.push(getLocaldata)
-        }
-        else {
-            localStorage.setItem("time", JSON.stringify({ breaktime }))
+            setBreaktime(getLocaldata)
         }
 
-    }, [breaktime])
-
-
-
-    const [alert, setAlert] = useState([])
-
-    const toastLook = () => {
-        setAlert(alert)
-        toast("Hurrah! Activity completed");
-    }
+    }, [])
 
     return (
         <div className='Sidebar'>
+            <ToastContainer />
             <div className='img-center'>
                 <img className='my-img' src={image} alt="" />
             </div>
@@ -49,10 +42,10 @@ const Sidebar = ({ time }) => {
                 <div className='break-time'>
                     <h4 style={{ color: '#fff' }} >Break Time</h4>
                     <div className='break-btn' >
-                        <button onClick={() => setBreaktime(10)}>10 m</button>
-                        <button onClick={() => setBreaktime(15)}>15 m</button>
-                        <button onClick={() => setBreaktime(30)}>30 m</button>
-                        <button onClick={() => setBreaktime(45)}>45 m</button>
+                        <button onClick={() => handleTime(10)}>10 m</button>
+                        <button onClick={() => handleTime(15)}>15 m</button>
+                        <button onClick={() => handleTime(30)}>30 m</button>
+                        <button onClick={() => handleTime(45)}>45 m</button>
                     </div>
                 </div>
             </div>
@@ -63,10 +56,9 @@ const Sidebar = ({ time }) => {
                     <h4 style={{ backgroundColor: 'sandybrown', padding: '10px', borderRadius: '10px' }}>Routine Time: {totalTime} miniute</h4>
                     <h4 style={{ backgroundColor: 'sandybrown', padding: '10px', borderRadius: '10px' }} >Break time: {breaktime} miniute</h4>
                 </div>
-                <button className='daily-act-btn' onClick={toastLook} ><p>Daily Activity Done</p></button>
+                <button className='daily-act-btn' onClick={() => toast("Hurrah! Activity completed")} ><p>Daily Activity Done</p></button>
 
             </div>
-            <ToastContainer />
         </div>
 
     );
